@@ -1,61 +1,60 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Tool, Truck, LucideBuilding } from 'lucide-react';
+import { Settings, Truck, BookOpen, ArrowRight } from 'lucide-react';
 
 const ServicesSection: React.FC = () => {
   return (
-    <section className="py-20">
+    <section className="py-16 bg-white">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">
-            Наши услуги
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
-            Предлагаем полный комплекс услуг от подбора до установки и сервисного обслуживания
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-quadro-dark mb-4">Наши услуги</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Комплексные решения для автосервисов любого масштаба
           </p>
         </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ServiceCard 
-            icon={<Tool size={28} />} 
-            title="Подбор оборудования" 
-            description="Помогаем подобрать оптимальное оборудование под ваши задачи и бюджет"
-          />
-          <ServiceCard 
-            icon={<Truck size={28} />} 
-            title="Поставка и монтаж" 
-            description="Организуем доставку, установку и запуск оборудования в эксплуатацию"
-          />
-          <ServiceCard 
-            icon={<LucideBuilding size={28} />} 
-            title="Работа с госзаказчиками" 
-            description="Полное сопровождение проектов по 44-ФЗ и 223-ФЗ, программам 'Профессионалитет'"
-          />
-        </div>
-        <div className="text-center mt-12">
-          <Button variant="outline" className="mt-4">
-            Все услуги <ArrowRight size={16} className="ml-2" />
-          </Button>
+          <div className="p-6 border border-gray-100 rounded-lg hover:shadow-md transition-shadow duration-300">
+            <div className="p-3 bg-quadro-lightGray inline-block rounded-full text-quadro-teal mb-4">
+              <Settings size={28} />
+            </div>
+            <h3 className="text-xl font-semibold mb-3 text-quadro-dark">Оборудование для СТО</h3>
+            <p className="text-gray-600 mb-4">
+              Поставляем профессиональное оборудование для обслуживания легковых и грузовых автомобилей
+            </p>
+            <Button variant="ghost" className="text-quadro-teal hover:text-quadro-darkTeal hover:bg-quadro-lightGray p-0">
+              Подробнее <ArrowRight size={16} className="ml-2" />
+            </Button>
+          </div>
+          
+          <div className="p-6 border border-gray-100 rounded-lg hover:shadow-md transition-shadow duration-300">
+            <div className="p-3 bg-quadro-lightGray inline-block rounded-full text-quadro-teal mb-4">
+              <Truck size={28} />
+            </div>
+            <h3 className="text-xl font-semibold mb-3 text-quadro-dark">Комплексное оснащение</h3>
+            <p className="text-gray-600 mb-4">
+              Проектирование и полное оснащение автосервисов под ключ с учетом всех технических требований
+            </p>
+            <Button variant="ghost" className="text-quadro-teal hover:text-quadro-darkTeal hover:bg-quadro-lightGray p-0">
+              Подробнее <ArrowRight size={16} className="ml-2" />
+            </Button>
+          </div>
+          
+          <div className="p-6 border border-gray-100 rounded-lg hover:shadow-md transition-shadow duration-300">
+            <div className="p-3 bg-quadro-lightGray inline-block rounded-full text-quadro-teal mb-4">
+              <BookOpen size={28} />
+            </div>
+            <h3 className="text-xl font-semibold mb-3 text-quadro-dark">Оснащение учебных центров</h3>
+            <p className="text-gray-600 mb-4">
+              Специализированное оборудование для программ "Профессионалитет" и "WorldSkills"
+            </p>
+            <Button variant="ghost" className="text-quadro-teal hover:text-quadro-darkTeal hover:bg-quadro-lightGray p-0">
+              Подробнее <ArrowRight size={16} className="ml-2" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
-  );
-};
-
-interface ServiceCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
-  return (
-    <div className="p-8 border rounded-lg text-center hover-scale">
-      <div className="w-16 h-16 mx-auto mb-6 bg-quadro-teal/10 rounded-full flex items-center justify-center">
-        <span className="text-quadro-teal">{icon}</span>
-      </div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-    </div>
   );
 };
 

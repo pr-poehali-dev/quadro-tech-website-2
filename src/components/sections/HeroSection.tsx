@@ -19,17 +19,18 @@ const HeroSection: React.FC = () => {
                 Получить консультацию
               </Button>
               <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                Каталог оборудования
+                Каталог оборудования <ArrowRight size={16} className="ml-2" />
               </Button>
             </div>
           </div>
           <div className="md:w-1/2 relative">
-            <div className="relative rounded-lg overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl">
               <img 
                 src="/placeholder.svg" 
                 alt="Автосервисное оборудование" 
                 className="w-full rounded-lg"
               />
+              <div className="absolute inset-0 bg-quadro-dark/20 rounded-lg"></div>
             </div>
           </div>
         </div>

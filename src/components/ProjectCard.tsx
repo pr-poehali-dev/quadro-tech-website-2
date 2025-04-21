@@ -1,45 +1,38 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
+import { Project } from '@/data/projectsData';
 
 interface ProjectCardProps {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
+  project: Project;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ 
-  id, 
-  title, 
-  description, 
-  image, 
-  tags 
-}) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <Link to={`/projects/${id}`} className="block hover-scale">
-      <div className="bg-white rounded-lg overflow-hidden shadow-sm h-full border border-gray-100">
-        <div className="aspect-video overflow-hidden">
-          <img 
-            src={image || "/placeholder.svg"} 
-            alt={title} 
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-          />
-        </div>
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2 line-clamp-1">{title}</h3>
-          <p className="text-muted-foreground mb-4 line-clamp-2">{description}</p>
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <Badge key={index} variant="secondary" className="bg-gray-100">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </div>
+    <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+      <div className="relative h-48 overflow-hidden">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          className="w-full h-full object-cover"
+        />
       </div>
-    </Link>
+      <div className="p-6">
+        <div className="flex flex-wrap gap-2 mb-3">
+          {project.tags.map((tag, index) => (
+            <Badge key={index} variant="secondary" className="bg-quadro-lightGray text-quadro-darkTeal">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+        <h3 className="text-xl font-semibold mb-2 text-quadro-dark">{project.title}</h3>
+        <p className="text-gray-600 mb-4">{project.description}</p>
+        <Button variant="ghost" className="text-quadro-teal hover:text-quadro-darkTeal hover:bg-quadro-lightGray p-0">
+          Подробнее <ArrowRight size={16} className="ml-2" />
+        </Button>
+      </div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +39,12 @@ const Navbar = () => {
           <Link to="/contacts" className="text-foreground hover:text-quadro-teal transition-colors font-medium">
             Контакты
           </Link>
-          <Button variant="default">Связаться</Button>
+        </div>
+
+        <div className="hidden md:flex items-center">
+          <Button variant="default" className="bg-quadro-teal hover:bg-quadro-darkTeal">
+            <Phone size={16} className="mr-2" /> +7 (800) 555-35-35
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -58,40 +63,42 @@ const Navbar = () => {
           <div className="container mx-auto py-4 flex flex-col space-y-4">
             <Link 
               to="/" 
-              className="px-4 py-2 text-foreground hover:bg-muted rounded-md transition-colors"
+              className="px-4 py-2 text-foreground hover:bg-quadro-lightGray rounded-md transition-colors"
               onClick={toggleMenu}
             >
               Главная
             </Link>
             <Link 
               to="/about" 
-              className="px-4 py-2 text-foreground hover:bg-muted rounded-md transition-colors"
+              className="px-4 py-2 text-foreground hover:bg-quadro-lightGray rounded-md transition-colors"
               onClick={toggleMenu}
             >
               О компании
             </Link>
             <Link 
               to="/services" 
-              className="px-4 py-2 text-foreground hover:bg-muted rounded-md transition-colors"
+              className="px-4 py-2 text-foreground hover:bg-quadro-lightGray rounded-md transition-colors"
               onClick={toggleMenu}
             >
               Услуги
             </Link>
             <Link 
               to="/projects" 
-              className="px-4 py-2 text-foreground hover:bg-muted rounded-md transition-colors"
+              className="px-4 py-2 text-foreground hover:bg-quadro-lightGray rounded-md transition-colors"
               onClick={toggleMenu}
             >
               Проекты
             </Link>
             <Link 
               to="/contacts" 
-              className="px-4 py-2 text-foreground hover:bg-muted rounded-md transition-colors"
+              className="px-4 py-2 text-foreground hover:bg-quadro-lightGray rounded-md transition-colors"
               onClick={toggleMenu}
             >
               Контакты
             </Link>
-            <Button variant="default" className="w-full">Связаться</Button>
+            <Button variant="default" className="bg-quadro-teal hover:bg-quadro-darkTeal w-full">
+              <Phone size={16} className="mr-2" /> +7 (800) 555-35-35
+            </Button>
           </div>
         </div>
       )}
